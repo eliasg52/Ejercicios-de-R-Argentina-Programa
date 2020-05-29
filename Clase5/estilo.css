@@ -1,0 +1,9 @@
+.color-amarillo{
+	color: #F5973D;
+}
+
+body{
+	 max-width: 500px;
+	 margin: auto;
+	 background-color: black;
+}
