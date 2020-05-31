@@ -1,12 +1,24 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>r/Argentina programa | Intro a JavaScript | Tarea Clase 4</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <title>Clase 5</title>
 </head>
-
 <body>
-<script src="tareaClase4.js"></script>
+	<h1 class="color-amarillo">Calcular Salario Mensual</h1>
+<form>
+	<p class="color-amarillo">Ingresa tu salario Anual por favor!</p>
+	<input type="number" id="salario-anual" placeholder="0"/>
+	<input type="submit" id="boton-calcular" value="Calcular"/>
+    <button type="reset">Limpiar</button>
+    <br>
+	<input type="text" disabled id="salario-mensual" />
+</form>	
+
+<script type="text/javascript" src="tarea-clase-5.js"></script>
 </body>
 </html>
