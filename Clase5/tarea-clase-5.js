@@ -39,7 +39,7 @@ $botonCalcular.onclick = function(){
 	textoResultado = $salarioAnualUsuario / mesesEnUnAnio;
 
 	const $textoResultado = document.querySelector('#salario-mensual');
-	$textoResultado.value = `Tu salario mensual es $${textoResultado} pesos`;
+	$textoResultado.value = `Salario Mensual: $${textoResultado} pesos`;
 	}
 	
 	return false;
