@@ -10,16 +10,25 @@
     <title>Clase 5</title>
 </head>
 <body>
+<div>
 	<h1 class="color-amarillo">Calcular Salario Mensual</h1>
-<form>
-	<p class="color-amarillo">Ingresa tu salario Anual por favor!</p>
-	<input type="number" id="salario-anual" placeholder="0"/>
-	<input type="submit" id="boton-calcular" value="Calcular"/>
-    <button type="reset">Limpiar</button>
-    <br>
-	<input type="text" disabled id="salario-mensual" />
-</form>	
+    <form>
+    	<p class="color-amarillo">Ingresa tu salario Anual por favor!</p>
+    	<input type="number" id="salario-anual" placeholder="0"/>
+    	<input type="submit" id="boton-calcular" value="Calcular"/>
+        <button type="reset">Limpiar</button>
+        <br>
+    	<input type="text" disabled id="salario-mensual" />
+    </form>	
+ </div>
 
+<div>
+    <form id="entrada-bar" onsubmit="return false;">
+        <input type="text" placeholder="Ingresá tu nombre" id="nombre-usuario"/>
+        <input type="number" placeholder="Ingresá tu edad" id="edad-usuario" />
+        <input type="submit" value="Ingresar" id="ingresar"/>
+    </form>
+</div>
 <script type="text/javascript" src="Clase5/tarea-clase-5.js"></script>
 </body>
 </html>
