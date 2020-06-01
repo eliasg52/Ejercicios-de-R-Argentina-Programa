@@ -20,7 +20,8 @@ $botonIngresar.onclick = function(){
 	*/
 	const $divResultado = document.querySelector('#resultado');
 	const nuevoInput = document.createElement('INPUT');
-	nuevoInput.setAttribute("type", "text");				
+	nuevoInput.setAttribute("type", "text");
+	nuevoInput.setAttribute("size", "25");				
 	nuevoInput.value = mostrarInformacionUsuario;
 	$divResultado.appendChild(nuevoInput);
 }
