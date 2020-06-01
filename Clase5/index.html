@@ -9,16 +9,40 @@
     <title>Clase 5</title>
 </head>
 <body>
-	<h1 class="color-amarillo">Calcular Salario Mensual</h1>
-<form>
-	<p class="color-amarillo">Ingresa tu salario Anual por favor!</p>
-	<input type="number" id="salario-anual" placeholder="0"/>
-	<input type="submit" id="boton-calcular" value="Calcular"/>
-    <button type="reset">Limpiar</button>
-    <br>
-	<input type="text" disabled id="salario-mensual" />
-</form>	
+    <div>
+    <h2 class="color-blanco">Primer Tarea: Calcular Salario Mensual</h2>
+    <p class="color-amarillo">Ingresa tu salario Anual por favor!</p>
+    <form>
+        <input type="number" id="salario-anual" placeholder="0"/>
+        <input type="submit" id="boton-calcular" value="Calcular"/>
+        <button type="reset">Limpiar</button>
+        <br>
+        <input type="text" disabled id="salario-mensual" />
+    </form> 
+    </div>
+<br>
+<br>
+<br>
+    <div>
+        <h2 class="color-blanco">Segunda Tarea: Mostrar Informacion Usuario</h2>
+        <h3 id="titulo-bienvenida" class="color-amarillo">Bienvenido </h3>
+        <p class="color-amarillo">Cargar Informacion de usuario</p>
+        <form id="entrada-bar" onsubmit="return false;">
+            <input type="text" placeholder="Ingresá tu nombre" id="nombre-usuario"/>
+            <input type="text" placeholder="Ingresá tu segundo nombre" id="snombre-usuario"/>
+            <input type="text" placeholder="Ingresá tu apellido" id="apellido-usuario"/>
+            <input type="number" placeholder="Ingresá tu edad" id="edad-usuario" />
+            <input type="submit" value="Ingresar" id="ingresar"/>
+        </form>
+    </div>
+<br>    
+    <div class="color-amarillo" id="resultado">Informacion de usuario: </div>
+
+    
+
+
 
 <script type="text/javascript" src="tarea-clase-5.js"></script>
+<script type="text/javascript" src="tarea-clase-5-2.js"></script>
 </body>
 </html>
