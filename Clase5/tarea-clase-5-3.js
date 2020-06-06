@@ -1,5 +1,6 @@
 const $botonCalcularTiempo = document.querySelector('#calcular-tiempo-total');
-const $horasVideo = document.querySelectorAll('.horas-video');
+const $botonLimpiar = document.querySelector('#borrar-contenido');
+let $horasVideo = document.querySelectorAll('.horas-video');
 const $minutosVideo = document.querySelectorAll('.minutos-video');
 const $segundosVideo = document.querySelectorAll('.segundos-video');
 const $resultadoTiempo = document.querySelector('#resultado-calcular-tiempo')
@@ -24,3 +25,9 @@ $botonCalcularTiempo.onclick = function(){
 	$resultadoTiempo.innerText = `El Tiempo total de las clases es ${horasSumaTotal}hs ${minutosSumaTotal}min ${segundosSumaTotal}sec.` 
 }
 
+$botonLimpiar.onclick = function(){
+
+	if ($resultadoTiempo !== '' && $horasVideo !==''){
+		$resultadoTiempo.innerText = '';
+	}
+}
