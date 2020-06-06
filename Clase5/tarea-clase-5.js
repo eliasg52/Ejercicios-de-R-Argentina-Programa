@@ -53,6 +53,7 @@ $botonCalcular.onclick = function(){
 // mostrar toda la información junta en un campo de texto
 // Y va a cambiar el <h1> para decir "Bienvenido, nombreDeUsuario"!
 
+
 /*
 Ejemplo form:
   <form id="entrada-bar" onsubmit="return false;">
@@ -64,6 +65,8 @@ Ejemplo form:
   <div id="resultado">Hola</div>
 *
 * */
+
+
 
 //TAREA: En otro archivo distinto,
 // Por cada clase de r/argentina programa existente, vamos a pedir:
