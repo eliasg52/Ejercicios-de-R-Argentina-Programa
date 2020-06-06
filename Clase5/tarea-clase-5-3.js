@@ -8,21 +8,8 @@ $botonCalcularTiempo.onclick = function(){
 	let horasSumaTotal = 0;
 	for(let i = 0; i < $horasVideo.length; i++){
 		horasSumaTotal = horasSumaTotal + horasVideo[i].value;
-		$horasVideo.innerText = $resultadoTiempo;
 	}
 
 	// $horasVideo.innerText = $resultadoTiempo;
-/*
-
-	/*const $listaHoras = document.querySelectorAll('.horas-video');
-	let horasVideo = 0;
-	for (let i = 0; i < $listaHoras.length; i++) {
-    	horasVideo = horasVideo + listaHoras[i].value;
-	}
-
-	$listaHoras.innerText = $resultadoTiempo;
-
-	;*/
-
 
 }
