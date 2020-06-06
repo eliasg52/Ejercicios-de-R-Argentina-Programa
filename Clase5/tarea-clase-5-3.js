@@ -20,6 +20,7 @@ $botonCalcularTiempo.onclick = function(){
 	for(let i = 0; i < $segundosVideo.length; i++){
 		segundosSumaTotal = segundosSumaTotal + Number($segundosVideo[i].value);
 	}
-	
+
 	$resultadoTiempo.innerText = `El Tiempo total de las clases es ${horasSumaTotal}hs ${minutosSumaTotal}min ${segundosSumaTotal}sec.` 
 }
+
