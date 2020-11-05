@@ -6,3 +6,26 @@ label {
   display: block;
   margin-top: 0.5rem;
 }
+
+.color-amarillo {
+  color: #f5973d;
+}
+
+.color-blanco {
+  color: white;
+}
+
+body {
+  max-width: 500px;
+  margin: auto;
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 6%;
+  color: red;
+}
