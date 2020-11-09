@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1, initial-scale=1.0" />
+    <title>Tarea 2 Clase 6</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="color-blanco">Sueldos de la familia.</h1>
+
+    <form id="familiares" class="familiares color-amarillo">
+      <label for="pregunta">Que integrante de la familia trabaja?</label>
+      <input type="text" id="cantidad-integrantes" />
+      <button type="submit" id="agregar-integrantes">
+        Agregar Integrantes
+      </button>
+    </form>
+
+    <div id="integrantes"></div>
+
+    <button id="boton-calcular" class="oculto boton-calcular">Calcular</button>
+
+    <div id="analisis" class="oculto color-blanco">
+      <p>El mayor salario es: $<strong id="mayor-sueldo"></strong></p>
+      <p>El menor salario es: $<strong id="menor-sueldo"></strong></p>
+      <p>
+        El salario anual promedio es: $<strong id="promedio-anual"></strong>
+      </p>
+      <p>
+        El salario mensual promedio es: $<strong id="promedio-mensual"></strong>
+      </p>
+    </div>
+
+    <script src="tarea-clase-6-2.js"></script>
+  </body>
+</html>

@@ -1,10 +1,15 @@
-input {
-  display: block;
-}
-
 label {
   display: block;
   margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.boton-calcular {
+  margin-top: 2rem;
+}
+
+.oculto {
+  display: none;
 }
 
 .color-amarillo {
@@ -23,8 +28,12 @@ body {
 
 button {
   margin-top: 0.5rem;
+  margin-right: 0.5rem;
   cursor: pointer;
   border-style: none;
-  border-radius: 6%;
-  color: red;
+  border-radius: 5%;
+  background-color: white;
+  font-style: bold;
+  color: green;
+  height: 1.5rem;
 }
