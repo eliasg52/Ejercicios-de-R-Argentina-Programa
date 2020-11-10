@@ -6,6 +6,7 @@ Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor sala
 Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
 */
 
+//ACCIONES DEL BOTON AGREGAR INTEGRANTES/AGREGAR SUELDO/QUITAR SUELDO
 document.querySelector('#agregar-integrantes').onclick = function (event) {
   const $integrantes = document.querySelector('#cantidad-integrantes');
   const nombreIntegrante = $integrantes.value.trim();
@@ -94,6 +95,7 @@ function quitarInputSueldo(nombreIntegrante) {
   $div.removeChild($input);
 }
 
+//ACCIONES DEL BOTON CALCULAR
 document.querySelector('#boton-calcular').onclick = function () {
   const $inputSueldos = [...document.querySelectorAll('.sueldo-anual')];
   const inputSueldosNumeros = [];
@@ -115,7 +117,7 @@ document.querySelector('#boton-calcular').onclick = function () {
   );
 };
 
-//CALCULOS!
+//CALCULOS
 
 function calcularMayorSueldo(sueldoAnual) {
   let sueldoMayor = sueldoAnual[0];
