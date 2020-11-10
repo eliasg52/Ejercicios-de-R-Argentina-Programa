@@ -8,6 +8,7 @@ Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como
 
 //ACCIONES DEL BOTON AGREGAR INTEGRANTES/AGREGAR SUELDO/QUITAR SUELDO
 document.querySelector('#agregar-integrantes').onclick = function (event) {
+  event.preventDefault();
   const $integrantes = document.querySelector('#cantidad-integrantes');
   const nombreIntegrante = $integrantes.value.trim();
 
@@ -20,7 +21,6 @@ document.querySelector('#agregar-integrantes').onclick = function (event) {
   crearIntegranteBotones(nombreIntegrante);
   clickAgregarSueldo(nombreIntegrante);
   clickQuitarSueldo(nombreIntegrante);
-  event.preventDefault();
 };
 
 function crearIntegranteLabel(nombreIntegrante) {
@@ -64,8 +64,8 @@ function clickAgregarSueldo(nombreIntegrante) {
   document.querySelector(
     '#boton-' + nombreIntegrante + '-agregar'
   ).onclick = function (event) {
-    agregarInputSueldo(nombreIntegrante);
     event.preventDefault();
+    agregarInputSueldo(nombreIntegrante);
   };
 }
 
@@ -73,8 +73,8 @@ function clickQuitarSueldo(nombreIntegrante) {
   document.querySelector(
     '#boton-' + nombreIntegrante + '-quitar'
   ).onclick = function (event) {
-    quitarInputSueldo(nombreIntegrante);
     event.preventDefault();
+    quitarInputSueldo(nombreIntegrante);
   };
 }
 
