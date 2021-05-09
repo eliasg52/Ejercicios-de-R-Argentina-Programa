@@ -10,20 +10,14 @@ elementos.push(comportamiento);
 const descripcionRegalo = $form['descripcion-regalo'].value;
 elementos.push(descripcionRegalo);
 
-console.log(elementos);
-console.log(nombre.length);
-console.log(ciudad);
-console.log(comportamiento);
-console.log(descripcionRegalo);
-
 function validarNombre(nombre) {
   if (nombre.length === 0) {
-    return 'Introduce un valor';
+    return 'Introduce un nombre valido';
   }
 
   let caracteresMaximos = 10;
   if (nombre.length >= caracteresMaximos) {
-    return 'demasiados caracteres';
+    return 'Demasiados caracteres';
   }
 }
 
@@ -33,7 +27,7 @@ function validarCaracteresVacios(elemento) {
   }
 }
 
-function recorrerElementos() {
+function validarCaracteresFunciones() {
   for (elemento of elementos) {
     validarCaracteresVacios(elemento);
   }
