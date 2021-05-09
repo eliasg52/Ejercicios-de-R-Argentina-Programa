@@ -1,36 +1,40 @@
 const $form = document.querySelector('#carta-a-santa');
 
-elementos = [];
 const nombre = $form.nombre.value;
-elementos.push(nombre);
 const ciudad = $form.ciudad.value;
-elementos.push(ciudad);
 const comportamiento = $form.comportamiento.value;
-elementos.push(comportamiento);
 const descripcionRegalo = $form['descripcion-regalo'].value;
-elementos.push(descripcionRegalo);
 
 function validarNombre(nombre) {
   if (nombre.length === 0) {
-    return 'Introduce un nombre valido';
+    return 'Este campo debe tener al menos 1 caracter';
   }
 
   let caracteresMaximos = 10;
   if (nombre.length >= caracteresMaximos) {
-    return 'Demasiados caracteres';
+    return 'Este campo debe tener menos de 10 caracteres';
   }
+
+  return '';
 }
 
-function validarCaracteresVacios(elemento) {
-  if (elemento.length === 0) {
-    console.log('introduce un valor');
+function validarCiudad(ciudad) {
+  if (ciudad.length === 0) {
+    return 'No se selecciono ninguna ciudad';
   }
+
+  return '';
 }
 
-function validarCaracteresFunciones() {
-  for (elemento of elementos) {
-    validarCaracteresVacios(elemento);
+function validarDescripcionRegalo(descripcionRegalo) {
+  if (descripcionRegalo.length === 0) {
+    return 'No se completo la descripcion del regalo';
   }
-}
 
-recorrerElementos();
+  let caracteresMaximos = 150;
+  if (descripcionRegalo.length >= caracteresMaximos) {
+    return 'Este campo debe tener menos de 150 caracteres';
+  }
+
+  return '';
+}
