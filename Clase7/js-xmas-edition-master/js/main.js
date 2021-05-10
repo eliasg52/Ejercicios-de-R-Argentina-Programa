@@ -6,24 +6,22 @@ const comportamiento = $form.comportamiento.value;
 const descripcionRegalo = $form['descripcion-regalo'].value;
 
 function validarNombre(nombre) {
+  let caracteresMaximos = 10;
   if (nombre.length === 0) {
     return 'Este campo debe tener al menos 1 caracter';
-  }
-
-  let caracteresMaximos = 10;
-  if (nombre.length >= caracteresMaximos) {
+  } else if (nombre.length >= caracteresMaximos) {
     return 'Este campo debe tener menos de 10 caracteres';
+  } else {
+    return '';
   }
-
-  return '';
 }
 
 function validarCiudad(ciudad) {
   if (ciudad.length === 0) {
     return 'No se selecciono ninguna ciudad';
+  } else {
+    return '';
   }
-
-  return '';
 }
 
 function validarDescripcionRegalo(descripcionRegalo) {
@@ -34,7 +32,7 @@ function validarDescripcionRegalo(descripcionRegalo) {
   let caracteresMaximos = 150;
   if (descripcionRegalo.length >= caracteresMaximos) {
     return 'Este campo debe tener menos de 150 caracteres';
+  } else {
+    return '';
   }
-
-  return '';
 }
