@@ -13,13 +13,18 @@ Al hacer click en "calcular", mostrar en un elemento pre-existente el mayor sala
 
 Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como 0).
 */
+
 const familia = [];
 const agruparFamiliares = () => {
   let integrante = prompt('Ingresa un integrante de tu familia');
-  familia.push(integrante);
-  let confirmacion = confirm('Quieres ingresar otro integrante?');
+  if (integrante === null) {
+    alert('No ingresaste ningun integrante');
+  } else {
+    familia.push(integrante);
+  }
+  let confirmacion = confirm('Quieres ingresar un integrante?');
 
-  if (confirmacion === true) {
+  if (confirmacion) {
     agruparFamiliares();
   } else {
     crearInputsLabels();
@@ -30,6 +35,7 @@ const agruparFamiliares = () => {
 const crearInputsLabels = () => {
   for (let persona of familia) {
     let $formResultado = document.querySelector('#familiares');
+
     let nuevoLabel = document.createElement('label');
     nuevoLabel.setAttribute('for', `${persona}`);
     nuevoLabel.textContent = `${persona}:`;
@@ -37,9 +43,10 @@ const crearInputsLabels = () => {
 
     let nuevoInput = document.createElement('input');
     nuevoInput.setAttribute('placeholder', 'Ingresar Edad');
-    nuevoInput.setAttribute('type', 'number');
+    nuevoInput.setAttribute('type', 'text');
     nuevoInput.setAttribute('class', 'integrante');
     nuevoInput.setAttribute('id', `${persona}`);
+    nuevoInput.setAttribute('maxlength', '3');
     $formResultado.appendChild(nuevoInput);
   }
 };
@@ -49,7 +56,7 @@ const crearInputsLabels = () => {
 const calcularPromedioEdades = (array) => {
   let promedioEdad = 0;
   for (let i = 0; i < array.length; i++) {
-    promedioEdad = promedioEdad + array[i];
+    promedioEdad = promedioEdad + Number(array[i]);
   }
 
   return (promedioEdad / array.length).toFixed(2);
@@ -77,24 +84,40 @@ const menorEdad = (array) => {
   return edadMenor;
 };
 
-//EVENTO CALCULAR
+//FUNCION CALCULAR EDADES
 const $botonCalcular = document.querySelector('#boton-calcular');
 const $botonLimpiar = document.querySelector('#boton-limpiar');
 const $mayorEdad = document.querySelector('#mayor-edad');
 const $menorEdad = document.querySelector('#menor-edad');
 const $promedioEdad = document.querySelector('#promedio-edad');
 
-$botonCalcular.onclick = function () {
+function calcularEdades() {
   const $inputs = [...document.querySelectorAll('.integrante')];
-  let inputsNumero = [];
-  for (let i = 0; i < $inputs.length; i++) {
-    inputsNumero.push(Number($inputs[i].value));
-  }
+  let inputsEdades = [];
+  $inputs.forEach((input) => {
+    let edadIntegrante = input.value;
+    if (validarEdades(edadIntegrante) === '');
+    inputsEdades.push(edadIntegrante);
+  });
 
-  $mayorEdad.value = mayorEdad(inputsNumero);
-  $menorEdad.value = menorEdad(inputsNumero);
-  $promedioEdad.value = calcularPromedioEdades(inputsNumero);
-};
+  $mayorEdad.value = mayorEdad(inputsEdades);
+  $menorEdad.value = menorEdad(inputsEdades);
+  $promedioEdad.value = calcularPromedioEdades(inputsEdades);
+}
+
+function validarEdades(edadIntegrante) {
+  if (!/^[0-9]+$/.test(edadIntegrante)) {
+    return 'El campo edades solo puede tener numeros';
+  } else if (edadIntegrante > 150) {
+    return 'Ingrese una edad valida entre 1 y 150 años';
+  } else if (edadIntegrante === '') {
+    return 'Este campo debe tener al menos 1 caracter';
+  } else {
+    return '';
+  }
+}
+
+$botonCalcular.onclick = calcularEdades;
 
 //EVENTO RESETEAR VALORES
 $botonLimpiar.onclick = function () {
