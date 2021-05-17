@@ -141,8 +141,7 @@ function manejarErrores(errores) {
   eliminarErroresExistentes();
   keys.forEach(function (key) {
     const error = errores[key];
-    console.log(keys);
-    console.log(key);
+
     if (error) {
       cantidadErrores++;
       $formResultado[key].classList.add('error');
