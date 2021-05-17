@@ -17,7 +17,7 @@ Punto bonus: si hay inputs vacíos, ignorarlos en el cálculo (no contarlos como
 const familia = [];
 const agruparFamiliares = () => {
   let integrante = prompt('Ingresa un integrante de tu familia');
-  if (integrante === null) {
+  if (integrante === null || integrante === '') {
     alert('No ingresaste ningun integrante');
   } else {
     familia.push(integrante);
@@ -106,18 +106,66 @@ function calcularEdades() {
 }
 
 function validarEdades(edadIntegrante) {
-  if (!/^[0-9]+$/.test(edadIntegrante)) {
+  if (edadIntegrante === '') {
+    return 'Este campo debe tener al menos 1 caracter';
+  } else if (!/^[0-9]+$/.test(edadIntegrante)) {
     return 'El campo edades solo puede tener numeros';
   } else if (edadIntegrante > 150) {
     return 'Ingrese una edad valida entre 1 y 150 años';
-  } else if (edadIntegrante === '') {
-    return 'Este campo debe tener al menos 1 caracter';
   } else {
     return '';
   }
 }
 
-$botonCalcular.onclick = calcularEdades;
+function validarFormulario() {
+  const $inputs = [...document.querySelectorAll('.integrante')];
+  let errores = {};
+  $inputs.forEach((input) => {
+    let edadIntegrante = input.value;
+    let idIntegrante = input.id;
+    let errorValidarEdades = validarEdades(edadIntegrante);
+    if (errorValidarEdades) {
+      errores[idIntegrante] = errorValidarEdades;
+    }
+  });
+
+  return errores;
+}
+
+function manejarErrores(errores) {
+  console.log(errores);
+  let $formResultado = document.querySelector('#familiares');
+  const keys = Object.keys(errores);
+  const $errores = document.querySelector('#errores');
+  let cantidadErrores = 0;
+
+  keys.forEach(function (key) {
+    const error = errores[key];
+    console.log(keys);
+    console.log(key);
+    if (error) {
+      cantidadErrores++;
+      $formResultado[key].classList.add('error');
+
+      const $error = document.createElement('li');
+      $error.innerText = error;
+
+      $errores.appendChild($error);
+    } else {
+      $formResultado[key].classList.add('');
+    }
+  });
+  return cantidadErrores;
+}
+
+//BUSQUE EN GOOGLE COMO PASAR 2 FUNCIONES AL EVENTO ONCLICK Y ME DIO ESTE RESULTADO
+function funcionesAlTocarCalcular() {
+  let errores = validarFormulario();
+  manejarErrores(errores);
+  calcularEdades();
+}
+
+$botonCalcular.onclick = funcionesAlTocarCalcular;
 
 //EVENTO RESETEAR VALORES
 $botonLimpiar.onclick = function () {
