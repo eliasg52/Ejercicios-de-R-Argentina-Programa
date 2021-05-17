@@ -133,12 +133,12 @@ function validarFormulario() {
 }
 
 function manejarErrores(errores) {
-  console.log(errores);
   let $formResultado = document.querySelector('#familiares');
   const keys = Object.keys(errores);
   const $errores = document.querySelector('#errores');
   let cantidadErrores = 0;
 
+  eliminarErroresExistentes();
   keys.forEach(function (key) {
     const error = errores[key];
     console.log(keys);
@@ -152,17 +152,26 @@ function manejarErrores(errores) {
 
       $errores.appendChild($error);
     } else {
-      $formResultado[key].classList.add('');
+      $formResultado[key].classList.remove('error');
     }
   });
   return cantidadErrores;
 }
 
-//BUSQUE EN GOOGLE COMO PASAR 2 FUNCIONES AL EVENTO ONCLICK Y ME DIO ESTE RESULTADO
+function eliminarErroresExistentes() {
+  const elementosErrores = document.querySelectorAll('#errores li');
+  elementosErrores.forEach(function (elemento) {
+    elemento.remove();
+  });
+}
+
+//BUSQUE EN GOOGLE COMO PASAR DOS O MAS FUNCIONES AL EVENTO ONCLICK Y ME DIO ESTE RESULTADO
 function funcionesAlTocarCalcular() {
   let errores = validarFormulario();
-  manejarErrores(errores);
-  calcularEdades();
+  let cantidadErrores = manejarErrores(errores);
+  if (cantidadErrores === 0) {
+    calcularEdades();
+  }
 }
 
 $botonCalcular.onclick = funcionesAlTocarCalcular;
