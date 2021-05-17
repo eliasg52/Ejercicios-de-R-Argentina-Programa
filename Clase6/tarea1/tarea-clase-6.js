@@ -117,7 +117,7 @@ function validarEdades(edadIntegrante) {
   }
 }
 
-function validarFormulario() {
+function crearObjetoErrores() {
   const $inputs = [...document.querySelectorAll('.integrante')];
   let errores = {};
   $inputs.forEach((input) => {
@@ -165,15 +165,15 @@ function eliminarErroresExistentes() {
 }
 
 //BUSQUE EN GOOGLE COMO PASAR DOS O MAS FUNCIONES AL EVENTO ONCLICK Y ME DIO ESTE RESULTADO
-function funcionesAlTocarCalcular() {
-  let errores = validarFormulario();
+function validarFormulario() {
+  let errores = crearObjetoErrores();
   let cantidadErrores = manejarErrores(errores);
   if (cantidadErrores === 0) {
     calcularEdades();
   }
 }
 
-$botonCalcular.onclick = funcionesAlTocarCalcular;
+$botonCalcular.onclick = validarFormulario;
 
 //EVENTO RESETEAR VALORES
 $botonLimpiar.onclick = function () {
