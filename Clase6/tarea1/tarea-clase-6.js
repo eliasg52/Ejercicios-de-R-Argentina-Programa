@@ -19,9 +19,12 @@ const agruparFamiliares = () => {
   let integrante = prompt('Ingresa un integrante de tu familia');
   if (integrante === null || integrante === '') {
     alert('No ingresaste ningun integrante');
+  } else if (!isNaN(integrante)) {
+    alert('Ingrese un familiar valido');
   } else {
     familia.push(integrante);
   }
+
   let confirmacion = confirm('Quieres ingresar un integrante?');
 
   if (confirmacion) {
