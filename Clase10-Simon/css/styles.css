@@ -1,0 +1,142 @@
+/* ESTILOS GENERALES */
+:root {
+  --color-bg: #212e37;
+  --color-bg-secondary: #2b3743;
+  --color-text: #ffffff;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 26rem;
+  justify-items: center;
+  background-color: var(--color-bg-secondary);
+}
+
+/* SIMON */
+.simon-container {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 80% 10%;
+  width: 80%;
+}
+
+.simon {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  gap: 2px;
+  background-color: white;
+  opacity: 0.5;
+}
+
+/* BOTON EMPEZAR */
+button {
+  outline: none;
+  cursor: pointer;
+  background-color: fuchsia;
+  font-weight: bold;
+  border: 2px black solid;
+  height: 80%;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+.button-start {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+/* SCORE */
+.score {
+  display: grid;
+  justify-items: left;
+  font-weight: bold;
+}
+
+/* COLORES */
+.colors {
+  border: 3px black solid;
+}
+
+.green {
+  background-color: lime;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
+}
+
+/* JUGADORES */
+
+.players {
+  width: 50%;
+  height: 50%;
+  background-color: magenta;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.2;
+}
+
+/* NAVBAR */
+nav {
+  background-color: var(--color-bg-secondary);
+  display: flex;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.iconos-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -1rem;
+  gap: 0.7rem;
+}
+
+.iconos:hover {
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.iconos-container a:visited {
+  color: orange;
+}
+.iconos-container a:link {
+  color: orange;
+}
