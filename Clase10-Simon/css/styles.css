@@ -20,6 +20,14 @@ body {
   color: var(--color-text);
 }
 
+.hidden {
+  display: none;
+}
+
+.chosen-color {
+  opacity: 1;
+}
+
 .container {
   margin-top: 2rem;
   display: grid;
@@ -41,9 +49,7 @@ body {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
-  gap: 2px;
-  background-color: white;
-  opacity: 0.5;
+  gap: 1px;
 }
 
 /* BOTON EMPEZAR */
@@ -71,6 +77,10 @@ button:hover {
   display: grid;
   justify-items: left;
   font-weight: bold;
+}
+
+.opacity {
+  opacity: 0.5;
 }
 
 /* COLORES */
