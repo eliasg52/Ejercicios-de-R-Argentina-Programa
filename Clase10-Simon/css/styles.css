@@ -80,7 +80,7 @@ button:hover {
 }
 
 .opacity {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 /* COLORES */
@@ -109,12 +109,14 @@ button:hover {
 .players {
   width: 50%;
   height: 50%;
-  background-color: magenta;
-  align-self: center;
+  background-color: #ffffff;
   display: flex;
+  align-self: center;
   justify-content: center;
   align-items: center;
-  opacity: 0.2;
+  color: black;
+  font-weight: bold;
+  border: 2px black solid;
 }
 
 /* NAVBAR */
