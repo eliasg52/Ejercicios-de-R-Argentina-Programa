@@ -3,39 +3,52 @@ const startButton = document.querySelector('#start-button');
 const simon = document.querySelector('#simon');
 const cpuPlayer = document.querySelector('#cpu-turn');
 const humanPlayer = document.querySelector('#player-turn');
+let coloorCPU;
+let colorPlayer;
 
 startButton.addEventListener('click', () => {
-  /*   const hiddeButton = startButton.classList.add('hidden'); */
-
+  /*   const hiddeButton = startButton.classList.add('hidden');  OCULTAR EL BOTON EMPEZAR AL INICIO DEL JUEGO*/
+  /*   setTimeout(() => { */
+  /* }, 2000);
+   */
   setTimeout(() => {
     cpuTurn(colors);
   }, 1000);
 
-  setTimeout(() => {
-    playerTurn();
-  }, 2000);
+  playerTurn();
 
-  /*   setTimeout(() => {
+  /*   setTimeout((colorCPU) => {
+    console.log(coloorPlayer);
+    console.log(colorCPU);
+    checkColors(coloorCPU, colorPlayer);
+  }, 5000);
+    setTimeout(() => {
     checkColors(cpuTurn(colors), playerTurn());
   }, 3000); */
 });
 
 function cpuTurn(colors) {
-  console.log('inicio');
   const chooseRandomColor = Math.floor(Math.random() * 4);
-
   const randomColor = colors[chooseRandomColor];
-  randomColor.classList.remove('opacity');
-  cpuPlayer.classList.remove('opacity');
 
-  setTimeout(function () {
-    randomColor.classList.add('opacity');
-    cpuPlayer.classList.add('opacity');
-    console.log('fin');
-    const cpuColor = randomColor.id;
-    console.log(cpuColor);
-    return cpuColor;
-  }, 1500);
+  removeOpacity(randomColor, cpuPlayer);
+  addOpacity(randomColor, cpuPlayer);
+
+  const cpuColor = randomColor.id;
+  console.log(cpuColor);
+  coloorCPU = cpuColor;
+}
+
+function removeOpacity(color, player) {
+  color.classList.remove('opacity');
+  player.classList.remove('opacity');
+}
+
+function addOpacity(color, player) {
+  setTimeout(() => {
+    color.classList.add('opacity');
+    player.classList.add('opacity');
+  }, 1200);
 }
 
 function checkColors(cpuColor, playerColor) {
@@ -46,12 +59,22 @@ function checkColors(cpuColor, playerColor) {
   }
 }
 
-function obtenerColor(e) {
+function obtainColor(e) {
   const color = e.target.id;
+  const divColor = e.target;
   console.log(color);
-  return color;
+  console.log(coloorCPU);
+  removeOpacity(divColor, humanPlayer);
+  addOpacity(divColor, humanPlayer);
+  colorPlayer = color;
+  /*   setTimeout(() => {
+    checkColors(coloorCPU, colorPlayer);
+  }, 5000); */
 }
 
 function playerTurn() {
-  simon.addEventListener('click', obtenerColor);
+  simon.addEventListener('click', obtainColor);
+  setTimeout(() => {
+    checkColors(coloorCPU, colorPlayer);
+  }, 5000);
 }
