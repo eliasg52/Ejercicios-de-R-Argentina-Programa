@@ -69,11 +69,11 @@ function checkColors(cpuColor, playerColor, round) {
   }
 }
 
-function incrementRound(round) {
+/* function incrementRound(round) {
   round++;
-  /*  round = round + 1; */
+
   return round;
-}
+} */
 
 function getColor(e) {
   const color = e.target.id;
