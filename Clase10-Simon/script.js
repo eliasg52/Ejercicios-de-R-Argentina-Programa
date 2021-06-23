@@ -3,45 +3,54 @@ const startButton = document.querySelector('#start-button');
 const simon = document.querySelector('#simon');
 const cpuPlayer = document.querySelector('#cpu-turn');
 const humanPlayer = document.querySelector('#player-turn');
-let coloorCPU;
+let cpuColors = [];
 let colorPlayer;
+let round = 0;
 
 startButton.addEventListener('click', () => {
   /*   const hiddeButton = startButton.classList.add('hidden');  OCULTAR EL BOTON EMPEZAR AL INICIO DEL JUEGO*/
   /*   setTimeout(() => { */
   /* }, 2000);
    */
-  setTimeout(() => {
-    cpuTurn(colors);
-  }, 1000);
-
-  playerTurn();
-
-  /*   setTimeout((colorCPU) => {
-    console.log(coloorPlayer);
-    console.log(colorCPU);
-    checkColors(coloorCPU, colorPlayer);
-  }, 5000);
-    setTimeout(() => {
-    checkColors(cpuTurn(colors), playerTurn());
-  }, 3000); */
+  console.log(round);
+  startGame();
 });
 
+function startGame() {
+  setTimeout(() => {
+    cpuTurn(colors);
+  }, 1000),
+    setTimeout(() => {
+      humanPlayer.classList.remove('opacity');
+      playerTurn();
+    }, 3000);
+  /* setTimeout(() => {
+      roundIncrementer(round);
+    }); */
+}
+
 function cpuTurn(colors) {
+  const random = randomColor(colors);
+  removeOpacity(random, cpuPlayer);
+  addOpacity(random, cpuPlayer);
+
+  const cpuColor = random.id;
+  console.log(cpuColor);
+  cpuColors.push(cpuColor);
+}
+
+function randomColor(colors) {
   const chooseRandomColor = Math.floor(Math.random() * 4);
   const randomColor = colors[chooseRandomColor];
-
-  removeOpacity(randomColor, cpuPlayer);
-  addOpacity(randomColor, cpuPlayer);
-
-  const cpuColor = randomColor.id;
-  console.log(cpuColor);
-  coloorCPU = cpuColor;
+  console.log(randomColor);
+  return randomColor;
 }
 
 function removeOpacity(color, player) {
   color.classList.remove('opacity');
+  console.log(color);
   player.classList.remove('opacity');
+  console.log(player);
 }
 
 function addOpacity(color, player) {
@@ -51,30 +60,36 @@ function addOpacity(color, player) {
   }, 1200);
 }
 
-function checkColors(cpuColor, playerColor) {
-  if (cpuColor === playerColor) {
-    console.log('SIIIIIII');
+function checkColors(cpuColor, playerColor, round) {
+  if (cpuColor[round] === playerColor) {
+    /*     round++; */
+    /*  round = round + 1; */
+    startGame();
   } else {
-    console.log('NO');
+    console.log('Perdiste');
   }
+}
+
+function roundIncrementer(round) {
+  console.log(round);
+  round + 1;
+  console.log(round);
+  return round;
 }
 
 function obtainColor(e) {
   const color = e.target.id;
   const divColor = e.target;
   console.log(color);
-  console.log(coloorCPU);
+  console.log(cpuColors);
   removeOpacity(divColor, humanPlayer);
   addOpacity(divColor, humanPlayer);
   colorPlayer = color;
-  /*   setTimeout(() => {
-    checkColors(coloorCPU, colorPlayer);
-  }, 5000); */
+  setTimeout(() => {
+    checkColors(cpuColors, colorPlayer, round);
+  }, 1000);
 }
 
 function playerTurn() {
   simon.addEventListener('click', obtainColor);
-  setTimeout(() => {
-    checkColors(coloorCPU, colorPlayer);
-  }, 5000);
 }
