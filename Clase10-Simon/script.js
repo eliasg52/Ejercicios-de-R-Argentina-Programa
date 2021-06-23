@@ -18,7 +18,7 @@ startButton.addEventListener('click', () => {
 
 function startGame() {
   setTimeout(() => {
-    cpuTurn(colors);
+    cpuTurn(colors, round);
   }, 1000),
     setTimeout(() => {
       humanPlayer.classList.remove('opacity');
@@ -29,8 +29,10 @@ function startGame() {
     }); */
 }
 
-function cpuTurn(colors) {
-  const random = randomColor(colors);
+function cpuTurn(colors, round) {
+  console.log(round);
+  incrementRound(round);
+  const random = getRandomColor(colors);
   removeOpacity(random, cpuPlayer);
   addOpacity(random, cpuPlayer);
 
@@ -39,7 +41,7 @@ function cpuTurn(colors) {
   cpuColors.push(cpuColor);
 }
 
-function randomColor(colors) {
+function getRandomColor(colors) {
   const chooseRandomColor = Math.floor(Math.random() * 4);
   const randomColor = colors[chooseRandomColor];
   console.log(randomColor);
@@ -62,22 +64,18 @@ function addOpacity(color, player) {
 
 function checkColors(cpuColor, playerColor, round) {
   if (cpuColor[round] === playerColor) {
-    /*     round++; */
-    /*  round = round + 1; */
     startGame();
   } else {
+    startGame();
     console.log('Perdiste');
   }
 }
 
-function roundIncrementer(round) {
-  console.log(round);
-  round + 1;
-  console.log(round);
-  return round;
+function incrementRound(round) {
+  round++;
 }
 
-function obtainColor(e) {
+function getColor(e) {
   const color = e.target.id;
   const divColor = e.target;
   console.log(color);
@@ -91,5 +89,5 @@ function obtainColor(e) {
 }
 
 function playerTurn() {
-  simon.addEventListener('click', obtainColor);
+  simon.addEventListener('click', getColor);
 }
