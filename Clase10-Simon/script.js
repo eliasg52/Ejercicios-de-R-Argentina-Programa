@@ -31,7 +31,7 @@ function startGame() {
 
 function cpuTurn(colors, round) {
   console.log(round);
-  incrementRound(round);
+  /* incrementRound(round); */
   const random = getRandomColor(colors);
   removeOpacity(random, cpuPlayer);
   addOpacity(random, cpuPlayer);
@@ -66,13 +66,14 @@ function checkColors(cpuColor, playerColor, round) {
   if (cpuColor[round] === playerColor) {
     startGame();
   } else {
-    startGame();
     console.log('Perdiste');
   }
 }
 
 function incrementRound(round) {
   round++;
+  /*  round = round + 1; */
+  return round;
 }
 
 function getColor(e) {
@@ -85,6 +86,7 @@ function getColor(e) {
   colorPlayer = color;
   setTimeout(() => {
     checkColors(cpuColors, colorPlayer, round);
+    round++;
   }, 1000);
 }
 
