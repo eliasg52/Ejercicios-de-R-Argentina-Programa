@@ -44,7 +44,6 @@ function cpuTurn(colors, round) {
 function getRandomColor(colors) {
   const chooseRandomColor = Math.floor(Math.random() * 4);
   const randomColor = colors[chooseRandomColor];
-  console.log(randomColor);
   return randomColor;
 }
 
