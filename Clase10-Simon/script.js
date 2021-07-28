@@ -71,6 +71,7 @@ function checkColors(cpuColor, playerColor, round) {
   console.log(cpuColor, playerColor, round);
   if (cpuColor[round] === playerColor) {
     console.log('correcto');
+    playerTurn();
   } else {
     console.log('Perdiste');
   }
