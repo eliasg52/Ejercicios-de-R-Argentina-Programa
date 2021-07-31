@@ -14,6 +14,7 @@ startButton.addEventListener('click', () => {
   /*   setTimeout(() => { */
   /* }, 2000);
    */
+  console.log(round);
   startGame();
 });
 
@@ -28,11 +29,8 @@ function startGame() {
 }
 
 function cpuTurn(colors) {
-  /*   console.log(time);
-  console.log(cpuColors); */
-
   const random = getRandomColor(colors);
-  /*   console.log(random); */
+  console.log(random);
   const cpuColor = random.id;
   cpuColors.push(cpuColor);
   cpuColorsEl.push(random);
@@ -55,7 +53,6 @@ function getRandomColor(colors) {
 function removeOpacity(color, player) {
   color.classList.remove('opacity');
   player.classList.remove('opacity');
-  /*   console.log(player); */
 }
 
 function addOpacity(color, player) {
@@ -69,7 +66,6 @@ function checkColors(cpuColor, playerColor, round) {
   console.log(cpuColor, playerColor, round);
   if (cpuColor[round] === playerColor) {
     console.log('correcto');
-    player;
     startGame();
   } else {
     console.log('Perdiste');
